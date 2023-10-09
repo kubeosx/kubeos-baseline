@@ -15,7 +15,7 @@ metadata:
     - Canary
   links:
     - url: https://github.com/fluxcd/flagger/issues
-      title: Support/Issues
+      title: Support Issues
       icon: help
     - url: https://github.com/fluxcd/flagger
       title: Github
