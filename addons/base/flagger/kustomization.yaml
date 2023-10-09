@@ -3,7 +3,7 @@ kind: Kustomization
 namespace: flagger-system
 # commonLabels:
 #   app: flagger
-commonAnnotations:
+#commonAnnotations:
 resources:
   - tester/
   - namespace.yaml

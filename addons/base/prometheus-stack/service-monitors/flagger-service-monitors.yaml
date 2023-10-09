@@ -1,14 +1,14 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: prometheus-self
-  namespace: default
+  name: flagger-loadtester-monitor
+  namespace: monitoring
   labels:
-    app: prometheus
+    metricScraper: prometheus
 spec:
   endpoints:
   - interval: 30s
-    port: web
+    port: http
   selector:
     matchLabels:
       metricScraper: prometheus
