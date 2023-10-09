@@ -4,7 +4,7 @@ metadata:
   name: flagger-loadtester
   labels:
     app: flagger-loadtester
-    metricScraper: prometheus
+    metrics-scraper: prometheus
   namespace: flagger-system
 spec:
   type: ClusterIP
