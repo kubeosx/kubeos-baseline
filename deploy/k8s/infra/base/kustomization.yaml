@@ -1,0 +1,40 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  # - flagger/
+  # - telemetry/kube-prometheus
+  # - kuma/
+#*** nginx  
+  - nginx/nginx.yaml
+  # - nginx/evolution-ingress.yaml
+#*** Prometheus Standalone
+  # - prometheus/sa.yaml
+  # - prometheus/clusterrole.yaml
+  # - prometheus/operator.yaml
+  # - prometheus/prometheus.yaml
+  # - prometheus/prometheus-svc.yaml
+  # - prometheus/servicemonitor.yaml
+  # - prometheus/additional-scrape-configs.yaml
+  # - prometheus/kube-state-metrics/cluster-role-binding.yaml
+  # - prometheus/kube-state-metrics/cluster-role.yaml
+  # - prometheus/kube-state-metrics/deployment.yaml
+  # - prometheus/kube-state-metrics/service-account.yaml
+  # - prometheus/kube-state-metrics/service.yaml
+#*** Grafana
+  # - grafana/grafana.yaml
+#*** K8s Dashboard
+  # - dashboard/service-account.yaml
+  # - dashboard/role-binding.yaml
+
+#*** Rabbit Mq
+  # - rabbitmq/rabbitmq-server.yaml
+  # - rabbitmq-setup.yaml
+#*** Dapr 
+  # - dapr/dapr-setup.yaml #install working
+  # - dapr/tracing.yaml
+#*** Flagger
+  # - flagger/namespace.yaml #install working
+  # - flagger/flagger-setup.yaml #install working
+#*** Zipkin
+  # - open-telemetry/zipkin-helm-setup.yaml

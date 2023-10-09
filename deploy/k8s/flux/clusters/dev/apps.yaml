@@ -1,0 +1,75 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: GitRepository
+metadata:
+  name: uploader-api
+  namespace: flux-system
+spec:
+  interval: 1m0s
+  ref:
+    branch: develop
+  url: https://github.com/cloud-first-approach/Evolution.Uploader
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: GitRepository
+metadata:
+  name: identity-api
+  namespace: flux-system
+spec:
+  interval: 1m0s
+  ref:
+    branch: develop
+  url: https://github.com/cloud-first-approach/Evolution.Identity
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: GitRepository
+metadata:
+  name: processor-api
+  namespace: flux-system
+spec:
+  interval: 1m0s
+  ref:
+    branch: develop
+  # secretRef:
+  #   name: flux-system
+  url: https://github.com/cloud-first-approach/Evolution.Processor
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: identity-api
+  namespace: flux-system
+spec:
+  interval: 1m0s
+  path: ./deploy/k8s/identity/overlays/dev
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: identity-api
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: uploader-api
+  namespace: flux-system
+spec:
+  # dependsOn:
+  #   - name: infra
+  interval: 1m0s
+  path: ./deploy/k8s/uploader/overlays/dev
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: uploader-api
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: processor-api
+  namespace: flux-system
+spec:
+  interval: 1m0s
+  path: ./deploy/k8s/processor/overlays/dev
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: processor-api

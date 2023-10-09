@@ -1,0 +1,38 @@
+apiVersion: kuma.io/v1alpha1
+kind: Retry
+mesh: mymesh
+metadata:
+  name: processor-to-uploader-retry-policy
+spec:
+  sources:
+  - match:
+      kuma.io/service: processor-api_processor_svc_80
+  destinations:
+  - match:
+      kuma.io/service: uploader-api_uploader_svc_80
+  conf:
+    http:
+      numRetries: 5
+      perTryTimeout: 200ms
+      backOff:
+        baseInterval: 20ms
+        maxInterval: 1s
+      retriableStatusCodes:
+      - 500
+      - 504
+      retriableMethods:
+      - GET
+    grpc:
+      numRetries: 5
+      perTryTimeout: 200ms
+      backOff:
+        baseInterval: 20ms
+        maxInterval: 1s
+      retryOn:
+      - cancelled
+      - deadline_exceeded
+      - internal
+      - resource_exhausted
+      - unavailable
+    tcp:
+      maxConnectAttempts: 3

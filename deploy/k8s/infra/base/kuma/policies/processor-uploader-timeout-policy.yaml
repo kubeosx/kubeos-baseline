@@ -1,0 +1,21 @@
+apiVersion: kuma.io/v1alpha1
+kind: Timeout
+mesh: mymesh
+metadata:
+  name: processor-to-uploader-mymesh
+spec:
+  sources:
+    - match:
+        kuma.io/service: 'processor-api_processor_svc_80'
+  destinations:
+    - match:
+        kuma.io/service: 'uploader-api_uploader_svc_80'
+  conf:
+    connectTimeout: 5s # all protocols
+    tcp: # tcp, kafka
+      idleTimeout: 5s 
+    http: # http, http2, grpc
+      requestTimeout: 15s 
+      idleTimeout: 1h
+      streamIdleTimeout: 30m
+      maxStreamDuration: 0s
