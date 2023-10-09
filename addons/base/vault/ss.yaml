@@ -6,6 +6,7 @@ metadata:
   labels:
     app.kubernetes.io/name: vault
     app.kubernetes.io/instance: vault
+    backstage.io/kubernetes-id: vault
 spec:
   serviceName: vault-internal
   replicas: 1
@@ -20,6 +21,7 @@ spec:
         app.kubernetes.io/name: vault
         app.kubernetes.io/instance: vault
         component: server
+        backstage.io/kubernetes-id: vault
     spec:
       serviceAccountName: vault
       securityContext:

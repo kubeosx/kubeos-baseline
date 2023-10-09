@@ -6,5 +6,6 @@ metadata:
 spec:
   targets:
     - ./catalog-info.yaml
+    - ./addons/base/vault/catalog-info.yaml
     - ./addons/base/flagger/catalog-info.yaml
     - ./addons/base/prometheus-stack/catalog-info.yaml

@@ -8,7 +8,9 @@ metadata:
   labels:
     app.kubernetes.io/name: vault
     app.kubernetes.io/instance: vault
+    backstage.io/kubernetes-id: vault
   annotations:
+    metrics-scraper: prometheus
 spec:
   type: NodePort  
   publishNotReadyAddresses: true
@@ -35,7 +37,9 @@ metadata:
   labels:
     app.kubernetes.io/name: vault
     app.kubernetes.io/instance: vault
+    backstage.io/kubernetes-id: vault
   annotations:
+    metrics-scraper: prometheus
 spec:
   clusterIP: None
   publishNotReadyAddresses: true

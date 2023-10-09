@@ -1,0 +1,17 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: vault
+  description: An open source tool to do canary releases efficiently.
+  annotations:
+    backstage.io/kubernetes-id: vault
+    github.com/project-slug: kubeosx/kubeos-baseline
+    backstage.io/techdocs-ref: dir:.
+    backstage.io/kubernetes-namespace: vault-backend
+    prometheus.io/alert: all
+    prometheus.io/rule: memUsage|component,node_memory_active_bytes|instance,sum by (instance) (node_cpu_seconds_total)
+spec:
+  type: service
+  owner: infrastructure
+  lifecycle: experimental
+  subcomponentOf: kubeos-baseline
