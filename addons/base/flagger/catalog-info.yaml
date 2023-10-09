@@ -14,3 +14,4 @@ spec:
   type: service
   owner: platform-engineering-team
   lifecycle: experimental
+  subcomponentOf: kubeos-baseline
