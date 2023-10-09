@@ -1,6 +1,0 @@
-
-resources:
-  #- procesor-uploader-retry-policy.yaml
-  #- processor-uploader-timeout-policy.yaml
-  #- processor-uploader-trafficlog-policy.yaml
-  - processor-to-uploader-rate-limit.yaml
