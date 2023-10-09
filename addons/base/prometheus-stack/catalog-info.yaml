@@ -1,13 +1,13 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: flagger
-  description: An open source tool to do canary releases efficiently.
+  name: prometheus-stack
+  description: Complete list of all prometheus relates stack, exporters, agents, grafana dashboards.
   annotations:
-    backstage.io/kubernetes-id: flagger
+    backstage.io/kubernetes-id: prometheus-stack
     github.com/project-slug: kubeosx/kubeos-baseline
     backstage.io/techdocs-ref: dir:.
-    backstage.io/kubernetes-namespace: flagger-system
+    backstage.io/kubernetes-namespace: monitoring
     prometheus.io/alert: all
     prometheus.io/rule: memUsage|component,node_memory_active_bytes|instance,sum by (instance) (node_cpu_seconds_total)
 spec:

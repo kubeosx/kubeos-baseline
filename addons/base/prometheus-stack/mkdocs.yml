@@ -1,0 +1,8 @@
+site_name: flagger
+site_description: flagger
+
+nav:
+  - Introduction: index.md
+
+plugins:
+  - techdocs-core
