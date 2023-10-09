@@ -6,14 +6,13 @@ Start write your documentation by adding more markdown (.md) files to this folde
 ## Un Seal First
 
 ```sh
-kubectl exec vault-0 -n vault-backend -- vault operator init -key-shares=1 -key-t
-hreshold=1 -format=json > keys.json
+kubectl exec vault-0 -n vault-backend -- vault operator init -key-shares=1 -key-threshold=1 -format=json > keys.json
 
 VAULT_UNSEAL_KEY=$(cat keys.json | jq -r ".unseal_keys_b64[]")
 
 VAULT_ROOT_KEY=$(cat keys.json | jq -r ".root_token")
 
-kubectl exec vault-0 -- vault operator unseal $VAULT_UNSEAL_KEY
+kubectl exec vault-0 -n vault-backend -- vault operator unseal $VAULT_UNSEAL_KEY
 ```
 The Table of Contents on the right is generated automatically based on the hierarchy
 of headings. Only use one H1 (`#` in Markdown) per file.
