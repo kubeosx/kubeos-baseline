@@ -6,6 +6,11 @@ metadata:
   annotations:
     github.com/project-slug: kubeosx/kubeos-baseline
     backstage.io/techdocs-ref: dir:.
+  tags:
+    - kubernetes
+    - flagger
+    - prometheus
+    - ingress-nginx
 spec:
   type: service
   owner: platform-engineering-team
