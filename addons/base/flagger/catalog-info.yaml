@@ -13,6 +13,16 @@ metadata:
   tags:
     - kubernetes
     - Canary
+  links:
+    - url: https://github.com/fluxcd/flagger/issues
+      title: Support/Issues
+      icon: help
+    - url: https://github.com/fluxcd/flagger
+      title: Github
+      icon: web
+    - url: https://docs.flagger.app/
+      title: Official Docs
+      icon: cloud
 spec:
   type: service
   owner: platform-engineering-team

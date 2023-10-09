@@ -10,6 +10,18 @@ metadata:
     backstage.io/kubernetes-namespace: vault-backend
     prometheus.io/alert: all
     prometheus.io/rule: memUsage|component,node_memory_active_bytes|instance,sum by (instance) (node_cpu_seconds_total)
+  tags:
+    - secrets-management
+  links:
+    - url: https://github.com/hashicorp/vault/issues
+      title: Support/Issues
+      icon: help
+    - url: https://github.com/hashicorp/vault
+      title: Github
+      icon: web
+    - url: https://developer.hashicorp.com/vault
+      title: Official Docs
+      icon: cloud
 spec:
   type: service
   owner: infrastructure

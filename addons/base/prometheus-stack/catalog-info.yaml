@@ -11,7 +11,6 @@ metadata:
     prometheus.io/alert: all
     prometheus.io/rule: memUsage|component,node_memory_active_bytes|instance,sum by (instance) (node_cpu_seconds_total)
   tags:
-    - kubernetes
     - node-exporter
     - prometheus
     - grafana
@@ -28,11 +27,11 @@ metadata:
     - url: https://example.com/dashboard
       title: Dashboard
       icon: dashboard
-    - url: https://example.com/help
-      title: Support
+    - url: https://github.com/prometheus-operator/kube-prometheus/issues
+      title: Support/Issues
       icon: help
-    - url: https://example.com/web
-      title: Website
+    - url: https://github.com/prometheus-operator/kube-prometheus
+      title: Github
       icon: web
     - url: https://example.com/alert
       title: Alerts
