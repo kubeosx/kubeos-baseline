@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: kubeos-baseline
+  description: An open source tool to do canary releases efficiently.
+  annotations:
+    github.com/project-slug: kubeosx/kubeos-baseline
+    backstage.io/techdocs-ref: dir:.
+spec:
+  type: service
+  owner: platform-engineering-team
+  lifecycle: experimental

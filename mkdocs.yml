@@ -1,0 +1,8 @@
+site_name: kubeos-baseline
+site_description: kubeos-baseline
+
+nav:
+  - Introduction: index.md
+
+plugins:
+  - techdocs-core
