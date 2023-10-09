@@ -3,4 +3,4 @@ kind: Kustomization
 resources:
 - manifests/setup/
 - manifests/
-- service-monitors/
+- service-monitors/flagger-service-monitors.yaml
