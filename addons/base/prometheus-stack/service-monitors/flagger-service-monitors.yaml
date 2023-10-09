@@ -10,6 +10,9 @@ spec:
   - interval: 30s
     port: http
     path: /metrics
+  namespaceSelector:
+    matchNames:
+    - flagger-system
   selector:
     matchLabels:
       metricScraper: prometheus
