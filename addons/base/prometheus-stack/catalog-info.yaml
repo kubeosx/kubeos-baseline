@@ -34,5 +34,5 @@ metadata:
       icon: alert
 spec:
   type: service
-  owner: infrastructure
+  owner: platform-engineering-team
   lifecycle: experimental
