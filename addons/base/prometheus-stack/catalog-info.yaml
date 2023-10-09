@@ -41,3 +41,4 @@ spec:
   owner: platform-engineering-team
   lifecycle: experimental
   subcomponentOf: kubeos-baseline
+  system: kubeos-idp
