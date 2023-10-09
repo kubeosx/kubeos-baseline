@@ -4,6 +4,7 @@ metadata:
   name: flagger
   description: An open source tool to do canary releases efficiently.
   annotations:
+    backstage.io/kubernetes-id: flagger
     github.com/project-slug: kubeosx/kubeos-baseline
     backstage.io/techdocs-ref: dir:.
 spec:

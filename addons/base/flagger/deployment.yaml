@@ -5,6 +5,8 @@ metadata:
   namespace: flagger-system
   labels:
     app: flagger
+  annotations:
+    backstage.io/kubernetes-id: flagger
 spec:
   replicas: 1
   strategy:
@@ -18,6 +20,7 @@ spec:
         app: flagger
       annotations:
         prometheus.io/scrape: "true"
+        backstage.io/kubernetes-id: flagger
     spec:
       serviceAccountName: flagger
       containers:
