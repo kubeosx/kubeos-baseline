@@ -7,6 +7,7 @@ metadata:
     backstage.io/kubernetes-id: flagger
     github.com/project-slug: kubeosx/kubeos-baseline
     backstage.io/techdocs-ref: dir:.
+    backstage.io/kubernetes-namespace: flagger-system
 spec:
   type: service
   owner: infrastructure
