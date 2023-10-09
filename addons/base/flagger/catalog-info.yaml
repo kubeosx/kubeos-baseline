@@ -26,4 +26,5 @@ spec:
   type: service
   owner: platform-engineering-team
   lifecycle: experimental
+  system: kubeos-idp
   subcomponentOf: kubeos-baseline
