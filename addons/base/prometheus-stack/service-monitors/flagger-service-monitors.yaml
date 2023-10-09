@@ -9,6 +9,7 @@ spec:
   endpoints:
   - interval: 30s
     port: http
+    path: /metrics
   selector:
     matchLabels:
       metricScraper: prometheus
