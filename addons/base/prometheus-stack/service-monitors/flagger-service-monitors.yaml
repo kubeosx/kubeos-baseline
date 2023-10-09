@@ -9,7 +9,7 @@ spec:
     port: http
     path: /metrics
   namespaceSelector:
-    any: 'true'
+    any: true
   selector:
     matchLabels:
       metricScraper: prometheus
