@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: flagger
-  namespace: default
+  namespace: flagger-system
   labels:
     app: flagger
 spec:
@@ -32,26 +32,26 @@ spec:
         - -log-level=info
         - -metrics-server=http://prometheus-operated.monitoring:9090
         #- -metrics-server=http://prometheus.istio-system:9090 # uncomment for istio/flagger to work
-        livenessProbe:
-          exec:
-            command:
-            - wget
-            - --quiet
-            - --tries=1
-            - --timeout=2
-            - --spider
-            - http://localhost:8080/healthz
-          timeoutSeconds: 5
-        readinessProbe:
-          exec:
-            command:
-            - wget
-            - --quiet
-            - --tries=1
-            - --timeout=2
-            - --spider
-            - http://localhost:8080/healthz
-          timeoutSeconds: 5
+        # livenessProbe:
+        #   exec:
+        #     command:
+        #     - wget
+        #     - --quiet
+        #     - --tries=1
+        #     - --timeout=2
+        #     - --spider
+        #     - http://localhost:8080/healthz
+        #   timeoutSeconds: 5
+        # readinessProbe:
+        #   exec:
+        #     command:
+        #     - wget
+        #     - --quiet
+        #     - --tries=1
+        #     - --timeout=2
+        #     - --spider
+        #     - http://localhost:8080/healthz
+        #   timeoutSeconds: 5
         resources:
           limits:
             memory: "512Mi"
@@ -62,3 +62,23 @@ spec:
         securityContext:
           readOnlyRootFilesystem: true
           runAsUser: 10001
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: flagger
+  labels:
+    app: flagger
+    metrics-scraper: prometheus
+  namespace: flagger-system
+spec:
+  type: ClusterIP
+  selector:
+    app: flagger
+  ports:
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: http

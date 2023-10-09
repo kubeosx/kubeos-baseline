@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: flagger
-  namespace: default
+  namespace: flagger-system
   labels:
     app: flagger
 ---
@@ -269,4 +269,4 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: flagger
-  namespace: default
+  namespace: flagger-system

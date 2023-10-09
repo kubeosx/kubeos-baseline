@@ -5,9 +5,9 @@ namespace: flagger-system
 #   app: flagger
 #commonAnnotations:
 resources:
-  - tester/
   - namespace.yaml
-  - account.yaml
+  - tester/
+  - sa.yaml
   - crd.yaml
   - deployment.yaml
 
