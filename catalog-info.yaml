@@ -10,6 +10,22 @@ metadata:
     - flagger
     - prometheus
     - vault
+  links:
+    - url: http://localhost:3000/
+      icon: Dashboard
+      title: Open Site
+    - url: https://github.com/fluxcd/flux2
+      icon: cloud
+      title: Utilize Flux Concept
+    - url: https://fluxcd.io/flux/get-started/
+      icon: web
+      title: Flux Docs
+    - url: https://github.com/kubeosx/kubeos-baseline
+      icon: web
+      title: Official Docs
+    - url: https://github.com/kubeosx/kubeos-baseline/issues
+      title: Kubeos Support/Issues
+      icon: help
 spec:
   type: service
   owner: platform-engineering-team
