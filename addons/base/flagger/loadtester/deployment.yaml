@@ -4,6 +4,7 @@ metadata:
   name: flagger-loadtester
   labels:
     app: flagger-loadtester
+    backstage.io/kubernetes-id: flagger-loadtester
   namespace: flagger-system
 spec:
   selector:
@@ -12,6 +13,7 @@ spec:
   template:
     metadata:
       labels:
+        backstage.io/kubernetes-id: flagger-loadtester
         app: flagger-loadtester
       annotations:
         prometheus.io/scrape: "true"

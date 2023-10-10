@@ -6,7 +6,7 @@ namespace: flagger-system
 #commonAnnotations:
 resources:
   - namespace.yaml
-  - tester/
+  - loadtester/
   - sa.yaml
   - crd.yaml
   - deployment.yaml

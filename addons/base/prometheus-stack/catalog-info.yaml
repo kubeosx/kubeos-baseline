@@ -15,18 +15,12 @@ metadata:
     - prometheus
     - grafana
   links:
-    - url: https://example.com/user
-      title: Examples Users
-      icon: user
-    - url: https://example.com/group
-      title: Example Group
-      icon: group
-    - url: https://example.com/cloud
-      title: Link with Cloud Icon
-      icon: cloud
-    - url: https://example.com/dashboard
-      title: Dashboard
-      icon: dashboard
+    - url: https://grafana.com/docs/grafana/latest/?pg=oss-graf&plcmt=hero-btn-2
+      title: Learn Grafana
+      icon: web
+    - url: https://prometheus.io/docs/introduction/overview/
+      title: Learn Prometheus
+      icon: web
     - url: https://github.com/prometheus-operator/kube-prometheus/issues
       title: Support/Issues
       icon: help

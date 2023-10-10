@@ -5,6 +5,7 @@ metadata:
   labels:
     app: flagger-loadtester
     metrics-scraper: prometheus
+    backstage.io/kubernetes-id: flagger-loadtester
   namespace: flagger-system
 spec:
   type: ClusterIP
