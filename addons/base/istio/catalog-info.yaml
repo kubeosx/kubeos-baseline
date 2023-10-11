@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: istio
+  description: An open source tool to do canary releases efficiently.
+  annotations:
+    backstage.io/kubernetes-id: istio
+    github.com/project-slug: kubeosx/kubeos-baseline
+    backstage.io/techdocs-ref: dir:.
+    backstage.io/kubernetes-namespace: istio-system
+    prometheus.io/alert: all
+    prometheus.io/rule: memUsage|component,node_memory_active_bytes|instance,sum by (instance) (node_cpu_seconds_total)
+  tags:
+    - progressive-delivery
+  links:
+    - url: https://github.com/istio/istio/issues
+      title: Support Issues
+      icon: help
+    - url: https://github.com/istio/istio
+      title: Github
+      icon: web
+    - url: https://istio.io/latest/docs/setup/getting-started/
+      title: Official Docs
+      icon: cloud
+spec:
+  type: service
+  owner: platform-engineering-team
+  lifecycle: experimental
+  system: kubeos-idp
+  subcomponentOf: kubeos-baseline

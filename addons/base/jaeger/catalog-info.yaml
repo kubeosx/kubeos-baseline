@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: jaeger
+  description: An open source tool to do canary releases efficiently.
+  annotations:
+    backstage.io/kubernetes-id: jaeger
+    github.com/project-slug: kubeosx/kubeos-baseline
+    backstage.io/techdocs-ref: dir:.
+    backstage.io/kubernetes-namespace: monitoring
+    prometheus.io/alert: all
+    prometheus.io/rule: memUsage|component,node_memory_active_bytes|instance,sum by (instance) (node_cpu_seconds_total)
+  tags:
+    - progressive-delivery
+  links:
+    - url: https://github.com/jaegertracing/jaeger/issues
+      title: Support Issues
+      icon: help
+    - url: https://github.com/jaegertracing/jaeger
+      title: Github
+      icon: web
+    - url: https://www.jaegertracing.io/docs/1.50/
+      title: Official Docs
+      icon: cloud
+spec:
+  type: service
+  owner: platform-engineering-team
+  lifecycle: experimental
+  system: kubeos-idp
+  subcomponentOf: kubeos-baseline

@@ -1,0 +1,8 @@
+site_name: jaeger
+site_description: jaeger
+
+nav:
+  - Introduction: index.md
+
+plugins:
+  - techdocs-core

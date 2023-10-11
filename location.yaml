@@ -9,4 +9,6 @@ spec:
     - ./addons/base/vault/catalog-info.yaml
     - ./addons/base/flagger/catalog-info.yaml
     - ./addons/base/flagger/loadtester/catalog-info.yaml
+    - ./addons/base/jaeger/catalog-info.yaml
+    - ./addons/base/istio/catalog-info.yaml
     - ./addons/base/prometheus-stack/catalog-info.yaml
