@@ -6,7 +6,6 @@ kind: Kustomization
 #commonAnnotations:
 resources:
   - nginx-controller.yaml
-  - ingress.yaml
 
 
 
