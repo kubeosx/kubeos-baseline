@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: kubeos-ingress
-  namespace: ingress-nginx
+  namespace: dev
   annotations:
     nginx.org/mergeable-ingress-type: "master"
     kubernetes.io/ingress.class: nginx
