@@ -6,6 +6,7 @@ namespace: ingress-nginx
 #commonAnnotations:
 resources:
   - nginx-controller.yaml
+  - ingress.yaml
 
 
 
