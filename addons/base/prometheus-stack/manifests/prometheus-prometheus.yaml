@@ -7,6 +7,8 @@ metadata:
     app.kubernetes.io/name: prometheus
     app.kubernetes.io/part-of: kube-prometheus
     app.kubernetes.io/version: 2.32.1
+    backstage.io/kubernetes-id: prometheus-stack
+    github.com/project-slug: kubeosx/kubeos-baseline
   name: k8s
   namespace: monitoring
 spec:
