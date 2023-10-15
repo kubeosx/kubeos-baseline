@@ -6,8 +6,6 @@ metadata:
     app.kubernetes.io/name: prometheus-adapter
     app.kubernetes.io/part-of: kube-prometheus
     app.kubernetes.io/version: 0.9.1
-    backstage.io/kubernetes-id: prometheus-stack
-    github.com/project-slug: kubeosx/kubeos-baseline
   name: prometheus-adapter
   namespace: monitoring
 spec:
