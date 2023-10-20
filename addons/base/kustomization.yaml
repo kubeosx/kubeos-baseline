@@ -5,5 +5,5 @@ resources:
   - flagger/
   - jaeger/
   - nginx/
-  - metric-server/
+  #- metric-server/ # ERROR: kustomize build failed: accumulating resources: accumulation err='accumulating resources from '../../base': read /tmp/kustomization-619171111/addons/base: is a directory': recursed accumulation of path '/tmp/kustomization-619171111/addons/base': accumulating resources: accumulation err='accumulating resources from 'metric-server/': read /tmp/kustomization-619171111/addons/base/metric-server: is a directory': recursed merging from path '/tmp/kustomization-619171111/addons/base/metric-server': may not add resource with an already registered id: ClusterRole.v1.rbac.authorization.k8s.io/system:aggregated-metrics-reader.[noNs]
   #- kyverno/
