@@ -5,4 +5,5 @@ resources:
   - flagger/
   - jaeger/
   - nginx/
+  - metric-server/components.yaml
   #- kyverno/
