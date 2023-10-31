@@ -6,6 +6,3 @@ resources:
   #- crds.yaml
   - setup.yaml
   - workload.yaml
-
-
-
