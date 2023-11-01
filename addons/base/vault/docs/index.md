@@ -80,7 +80,23 @@ vault write auth/kubernetes/role/kubeos \
         ttl=72h
 
 
+# NOW SERVICE SPECIFIC STUFF
 
+# service specfic policy
+vault policy write appname-policy - <<EOH
+path "kubeos/dev/appname"
+{
+  capabilities = ["create", "read", "update", "delete", "list", "sudo"]
+}
+EOH
+
+
+# Bind Service specific Role to Service Account
+vault write auth/kubernetes/role/appname \
+        bound_service_account_names=appname \
+        bound_service_account_namespaces=dev \
+        policies=appname-policy \
+        ttl=72h
 
 
 
