@@ -57,7 +57,7 @@ vault write auth/kubernetes/config token_reviewer_jwt="$(cat /var/run/secrets/ku
 kubectl create serviceaccount kubeos
 
 # Create Service Account
-vault write auth/kubernetes/role/webapp \
+vault write auth/kubernetes/role/kubeos \
         bound_service_account_names=kubeos \
         bound_service_account_namespaces=default \
         policies=admin-policy \
