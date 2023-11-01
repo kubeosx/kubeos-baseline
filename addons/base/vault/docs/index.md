@@ -4,8 +4,20 @@
 
 ## Unseal Vault
 
+
 ```bash
+
+helm install vault vault --repo https://helm.releases.hashicorp.com \
+  --namespace=vault-backend \
+  --set server.enabled=false \
+  --set injector.enabled=true \
+
+
+
 kubectl exec vault-0 -n vault-backend -- vault operator init -key-shares=1 -key-threshold=1 -format=json > keys.json
+
+# if name sapce if default
+kubectl exec vault-0 -n default -- vault operator init -key-shares=1 -key-threshold=1 -format=json > keys.json
 
 VAULT_UNSEAL_KEY=$(cat keys.json | jq -r ".unseal_keys_b64[]")
 
@@ -14,10 +26,14 @@ VAULT_ROOT_KEY=$(cat keys.json | jq -r ".root_token")
 kubectl exec vault-0 -n vault-backend -- vault operator unseal $VAULT_UNSEAL_KEY
 
 
+kubectl exec vault-0 -it -n vault-backend -- sh 
+$ vault login $VAULT_ROOT_KEY
+
 vault secrets enable -version=2 -path="kubeos" kv
 
 vault kv put kubeos/appname name=kubeos
-vault kv get kubeos/appname 
+vault kv put kubeos/dev/shopcart-api name=shopcart-api
+vault kv get kubeos/dev/shopcart-api
 
 
 vault policy write admin-policy - <<EOH
@@ -62,7 +78,6 @@ vault write auth/kubernetes/role/kubeos \
         bound_service_account_namespaces=default \
         policies=admin-policy \
         ttl=72h
-
 
 
 
