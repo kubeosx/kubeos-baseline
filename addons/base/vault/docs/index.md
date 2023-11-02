@@ -6,7 +6,8 @@
 
 
 ```bash
-
+ helm install vault hashicorp/vault --namespace=vault-backend --dry-run=client
+ 
 helm install vault vault --repo https://helm.releases.hashicorp.com \
   --namespace=vault-backend \
   --set server.enabled=false \
@@ -33,11 +34,13 @@ vault secrets enable -version=2 -path="kubeos" kv
 
 vault kv put kubeos/appname name=kubeos
 vault kv put kubeos/dev/shopcart-api name=shopcart-api
+
+vault kv put kubeos/dev/vault-test name=shopcart-api
 vault kv get kubeos/dev/shopcart-api
 
 
 vault policy write admin-policy - <<EOH
-path "secrets/kubeos/*"
+path "kubeos/dev/*"
 {
   capabilities = ["create", "read", "update", "delete", "list", "sudo"]
 }
@@ -108,17 +111,22 @@ Testing Out Vault
 # Example POD
 
 ---
+kubectl apply -f - <<EOH
 apiVersion: v1
 kind: Pod
 metadata:
   name: vault-client
   namespace: default
+  annotations:
+    vault.hashicorp.com/agent-inject: 'true'
+    vault.hashicorp.com/role: kubeos
+    vault.hashicorp.com/agent-inject-secret-config.txt: 'kubeos/dev/shopcart-api'
 spec:
   containers:
   - image: nginx:latest
     name: nginx
-  serviceAccountName: vault-auth
-
+  serviceAccountName: kubeos
+EOH
 
 kubectl apply -f pod.yaml
 
@@ -130,8 +138,8 @@ jwt_token=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)
 
 
 curl --request POST \
-    --data '{"jwt": "'$jwt_token'", "role": "webapp"}' \
-    http://35.193.55.248:32000/v1/auth/kubernetes/login
+    --data '{"jwt": "'$jwt_token'", "role": "kubeos"}' \
+    http://10.96.0.1:443/v1/auth/kubernetes/login
 
 
     curl -H "X-Vault-Token: s.bSRl7TNajYxWvA7WiLdTQS7Z" \
