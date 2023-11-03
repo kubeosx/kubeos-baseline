@@ -86,8 +86,12 @@ vault write auth/kubernetes/role/kubeos \
 # NOW SERVICE SPECIFIC STUFF
 
 # service specfic policy
-vault policy write appname-policy - <<EOH
-path "kubeos/dev/appname"
+vault policy write demo-policy - <<EOH
+path "kubeos/dev/*"
+{
+  capabilities = ["create", "read", "update", "delete", "list", "sudo"]
+}
+path "kubeos/*"
 {
   capabilities = ["create", "read", "update", "delete", "list", "sudo"]
 }
@@ -95,13 +99,13 @@ EOH
 
 
 # Bind Service specific Role to Service Account
-vault write auth/kubernetes/role/appname \
-        bound_service_account_names=appname \
+vault write auth/kubernetes/role/demo \
+        bound_service_account_names=demo \
         bound_service_account_namespaces=dev \
-        policies=appname-policy \
+        policies=demo-policy \
         ttl=72h
 
-
+vault kv put kubeos/dev/demo name=donedonedone2
 
 ```
 
