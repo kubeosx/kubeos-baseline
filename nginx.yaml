@@ -2,13 +2,9 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: webserver
-  namespace: vault-backend
 spec:
-  serviceAccountName: kubeos-vault-sync
   containers:
   - name: webserver
     image: nginx:latest
     ports:
     - containerPort: 80
-  # - name: webwatcher
-  #   image: afakharany/watcher:latest
