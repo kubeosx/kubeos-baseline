@@ -5,7 +5,7 @@ resources:
   - flagger/
   - jaeger/
   - nginx/
-  - opa/
+  # - opa/
   # - cnpg/
   # - vault/
   # - vault-sidecar-injector/
