@@ -5,6 +5,7 @@ resources:
   - flagger/
   - jaeger/
   - nginx/
+  - argocd/
   # - opa/
   # - cnpg/
   # - vault/
